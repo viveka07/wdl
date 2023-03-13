@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+┬á <title>Registration Form</title>
+┬á <script>
+┬á ┬á // Function to validate the form
+┬á ┬á function validateForm() {
+┬á ┬á ┬á // Get the values from the form
+┬á ┬á ┬á var userID = document.forms["registrationForm"]["userID"].value;
+┬á ┬á ┬á var password = document.forms["registrationForm"]["password"].value;
+┬á ┬á ┬á var name = document.forms["registrationForm"]["name"].value;
+┬á ┬á ┬á var address = document.forms["registrationForm"]["address"].value;
+┬á ┬á ┬á var country = document.forms["registrationForm"]["country"].value;
+┬á ┬á ┬á var zipcode = document.forms["registrationForm"]["zipcode"].value;
+┬á ┬á ┬á var email = document.forms["registrationForm"]["email"].value;
+┬á ┬á ┬á var gender = document.forms["registrationForm"]["gender"].value;
+┬á ┬á ┬á var language = document.forms["registrationForm"]["language"].value;
+┬á ┬á ┬á var about = document.forms["registrationForm"]["about"].value;
+
+┬á ┬á ┬á // Check if required fields are empty
+┬á ┬á ┬á if (userID == "" || password == "" || name == "" || address == "" || country == "" || zipcode == "" || email == "" || gender == "" || language == "") {
+┬á ┬á ┬á ┬á alert("Please fill out all required fields.");
+┬á ┬á ┬á ┬á return false;
+┬á ┬á ┬á }
+
+┬á ┬á ┬á // Validate email format
+┬á ┬á ┬á var emailRegex = /\S+@\S+\.\S+/;
+┬á ┬á ┬á if (!emailRegex.test(email)) {
+┬á ┬á ┬á ┬á alert("Please enter a valid email address.");
+┬á ┬á ┬á ┬á return false;
+┬á ┬á ┬á }
+
+┬á ┬á ┬á // Get confirmation from the user before submitting the form
+┬á ┬á ┬á var confirmation = confirm("Are you sure you want to submit the form?");
+┬á ┬á ┬á if (confirmation == false) {
+┬á ┬á ┬á ┬á return false;
+┬á ┬á ┬á }
+┬á ┬á }
+
+┬á ┬á // Function to add countries to select element
+┬á ┬á function addCountries() {
+┬á ┬á ┬á var countries = ["USA", "Canada", "Mexico", "England", "France", "Germany", "Japan", "China", "India", "Australia"];
+┬á ┬á ┬á var select = document.getElementById("country");
+┬á ┬á ┬á for (var i = 0; i < countries.length; i++) {
+┬á ┬á ┬á ┬á var option = document.createElement("option");
+┬á ┬á ┬á ┬á option.text = countries[i];
+┬á ┬á ┬á ┬á select.add(option);
+┬á ┬á ┬á }
+┬á ┬á }
+┬á </script>
+</head>
+<body onload="addCountries()">
+┬á <h1>Registration Form</h1>
+┬á <form name="registrationForm" onsubmit="return validateForm()">
+┬á ┬á <label for="userID">User ID:</label>
+┬á ┬á <input type="text" id="userID" name="userID" required><br>
+
+┬á ┬á <label for="password">Password:</label>
+┬á ┬á <input type="password" id="password" name="password" required><br>
+
+┬á ┬á <label for="name">Name:</label>
+┬á ┬á <input type="text" id="name" name="name" required><br>
+
+┬á ┬á <label for="address">Address:</label>
+┬á ┬á <input type="text" id="address" name="address" required><br>
+
+┬á ┬á <label for="country">Country:</label>
+┬á ┬á <select id="country" name="country" required>
+┬á ┬á ┬á <option value="">Select a country</option>
+┬á ┬á </select><br>
+
+┬á ┬á <label for="zipcode">Zip Code:</label>
+┬á ┬á <input type="text" id="zipcode" name="zipcode" required><br>
+
+┬á ┬á <label for="email">Email:</label>
+┬á ┬á <input type="email" id="email" name="email" required><br>
+
+┬á ┬á <label for="gender">Gender:</label>
+┬á ┬á <input type="radio" id="male" name="gender" value="Male" required>
+┬á ┬á <label for="male">Male</label>
+┬á ┬á <input type="radio" id="female" name="gender" value="Female" required>
+┬á ┬á <label for="male">Female</label><br>
+┬á ┬á 
+┬á ┬á <label for="gender">Language:</label>
+┬á ┬á <input type="radio" id="english" name="language" value="English" required>
+┬á ┬á <label for="male">English</label>
+┬á ┬á <input type="radio" id="nonenglish" name="language" value="Non-English" required>
+┬á ┬á <label for="male">Non-English</label><br>
+┬á ┬á 
+┬á ┬á <label for="about">About:</label>
+┬á ┬á <textarea id="about" name="about" rows="5" cols="50"></textarea><br><br>
+┬á ┬á 
+┬á ┬á <button type="submit">Submit</button>
+
+</form>
+</body>
+</html>
+c000000z
